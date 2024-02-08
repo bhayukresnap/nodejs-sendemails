@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Node JS - URL Shortener
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com" crossorigin)
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap")
+        link(rel='stylesheet', type='text/css', href='/vendor/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', type='text/css', href='/css/index.css')
+    body
+        div.container
+            block content
+        div.overlay.d-none#loading
+            div(class="spinner-border text-danger spinner", role="status")
+
+        script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
+        block script

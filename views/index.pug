@@ -1,0 +1,54 @@
+extends layouts/_layout.pug
+
+block content
+    div.d-flex.align-items-center.justify-content-center.vh-100
+        div.text-center.w-50
+            h1.h2.text-white.my-3
+                b NODE JS Email Sender
+            form(action="/api/email", method="POST", class="my-4", id="shorten")
+                div.input-group.mb-4
+                    input(type="text" class="form-control" name="email" placeholder="Email")
+                div.input-group.mb-4
+                    textarea(class="form-control" name="body" placeholder="Body Email" rows="4")
+                div.input-group
+                    button(type="submit" class="input-group-text btn btn-primary") Send Email
+            div#result.text-center
+
+
+block script
+    script.
+        const formShorten = document.getElementById('shorten');
+        const resultShorten = document.getElementById('result');
+        const loading = document.getElementById('loading');
+        formShorten.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const bodyRequest = {
+                email: document.querySelector('input[name="email"]').value,
+                body: document.querySelector('textarea[name="body"]').value
+            };
+            loading.classList.remove('d-none');
+            try{
+                const response = await fetch(formShorten.action, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(bodyRequest)
+                })
+                const result = await response.json();
+
+                if(!response.ok){
+                    console.log("Something went wrong!")
+                }
+                if(response.status == 200){
+                    resultShorten.innerHTML = result.message
+                }else{
+                    resultShorten.innerHTML = result.errors.map(error => {
+                        return error.msg
+                    })
+                }
+                loading.classList.add('d-none');
+            }catch(error){
+                console.log(error)
+            }
+        });

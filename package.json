@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-sendemails",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "author": "Bhayu Kresna Pangestoe",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "nodemailer": "^6.9.8",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
