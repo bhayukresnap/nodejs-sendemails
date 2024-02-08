@@ -1,4 +1,4 @@
-# URL Shortener
+# Send Emails with Node.js
 
 This project gets inspired from [Send Emails with Node.js](https://www.mridul.tech/blogs/node-js-project-ideas-to-boost-your-portfolio#3_Send_Emails_with_Nodejs)
 
